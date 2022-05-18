@@ -4,8 +4,8 @@
 
 void BubbleSort(int[], int);
 void swap(int, int);
-int[] ArrayMaker(int, int)
-void ArrayPrinter(int[], int)
+int[] ArrayMaker(int, int);
+void ArrayPrinter(int[], int);
 
 
 int main(void)
