@@ -1,0 +1,24 @@
+program ismi: Sorting Algoritms Time Comparison - satc
+Program işleyişi: satc --help - yardım menüsünü yazdıracak
+
+Kullanılışı: satc.exe yi çalıştırınca gözükecek menü
+Lütfen kullanılacak sıralama algortima numarasını giriniz:
+1. Bubblesort
+2. Heapsort
+3. Insertionsort
+4. Mergesort
+5. Quicksort
+6. Selectionsort
+7. Shellsort
+
+: 1
+
+Lütfen sıralama veri kümesini giriniz:
+
+: 1000
+
+Bubblesort algoritması 1000 random sıralı veriyi 0 millisaniyede sıraladı.
+Bubblesort algoritması 1000 ters sıralı veriyi 0 millisaniyede sıraladı.
+Bubblesort algoritması 1000 sıralı veriyi 0 millisaniyede sıraladı.
+
+Yeniden başlamak için r tuşuna, çıkmak için q tuşuna basınız.
