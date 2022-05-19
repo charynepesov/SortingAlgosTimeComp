@@ -22,3 +22,6 @@ Bubblesort algoritması 1000 ters sıralı veriyi 0 millisaniyede sıraladı.
 Bubblesort algoritması 1000 sıralı veriyi 0 millisaniyede sıraladı.
 
 Yeniden başlamak için r tuşuna, çıkmak için q tuşuna basınız.
+
+BubbleSort algortimasi
+----------------------
