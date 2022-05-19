@@ -6,6 +6,9 @@ void bubble_sort(int arr[], int size);
 void heap_sort(int arr[], int n);
 void insertion_sort(int *p, int size);
 void mergeSort(int arr[], int l, int r);
+void quickSort(int array[], int low, int high);
+void selectionSort(int arr[], int n);
+void shellSort(int s[], int size);
 
 int main(void)
 {
@@ -140,6 +143,66 @@ int main(void)
         printf("Mergesort algoritmasi %d sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
         break;
     
+    case 5:
+        begin = clock();
+            quickSort(arr1, 0, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Quicksort algoritmasi %d random sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+           
+        begin = clock();
+            quickSort(arr2, 0, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Quicksort algoritmasi %d ters sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+
+        begin = clock();
+            quickSort(arr3, 0, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Quicksort algoritmasi %d sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+        break;
+
+    case 6:
+        begin = clock();
+            selectionSort(arr1, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Selectionsort algoritmasi %d random sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+           
+        begin = clock();
+            selectionSort(arr2, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Selectionsort algoritmasi %d ters sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+
+        begin = clock();
+            selectionSort(arr3, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Selectionsort algoritmasi %d sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+        break;
+
+    case 7:
+        begin = clock();
+            shellSort(arr1, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Shellsort algoritmasi %d random sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+           
+        begin = clock();
+            shellSort(arr2, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Shellsort algoritmasi %d ters sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+
+        begin = clock();
+            shellSort(arr3, quantity);
+        end = clock();
+        time_spent = (double)(1000 * (end - begin)/CLOCKS_PER_SEC);
+        printf("Shellsort algoritmasi %d sirali diziyi %lf millisaniyede siraladi.\n", quantity, time_spent);
+        break;
+    
     
     default:
         break;
@@ -268,3 +331,69 @@ void mergeSort(int arr[], int l, int r)
     merge(arr, l, m, r);
   }
 }
+
+int partition(int array[], int low, int high)
+{
+  int pivot = array[high];
+  int j;
+  int i = (low - 1);
+  for (j = low; j < high; j++)
+  {
+    if (array[j] <= pivot)
+	{
+      i++;
+      swap(&array[i], &array[j]);
+    }
+  }
+  swap(&array[i + 1], &array[high]);
+  return (i + 1);
+}
+
+void quickSort(int array[], int low, int high)
+{
+  if (low < high)
+  {
+    int pi = partition(array, low, high);
+    quickSort(array, low, pi - 1);
+    quickSort(array, pi + 1, high);
+  }
+}
+
+void selectionSort(int arr[], int n)
+{
+    int i, j, min_idx;
+    for (i = 0; i < n-1; i++)
+    {
+        min_idx = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min_idx])
+            min_idx = j;
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+
+void shellSort(int s[], int size)
+ {
+  int i, j, increment, temp;
+  increment = 3;
+   while (increment > 0)
+   {
+    for (i=0; i < size; i++)
+     {
+      j = i;
+       temp = s[i];
+      while ((j >= increment) && (s[j-increment] > temp))
+      {
+        s[j] = s[j - increment];
+        j = j - increment;
+       }
+      s[j] = temp;
+     }
+     if (increment/2 != 0)
+       increment = increment/2;
+     else if (increment == 1)
+       increment = 0;
+     else
+       increment = 1;
+   }
+ }
