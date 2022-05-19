@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 16,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.tabCompletion": "on"
+}
